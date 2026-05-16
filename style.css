@@ -1,0 +1,864 @@
+/* ============================================================
+   FLEUR DE LAIT — style.css
+   Fiel ao design: cores, tipografia, blobs e decorações
+   ============================================================ */
+
+/* 1. VARIÁVEIS E RESET */
+:root {
+  --bg-cream:    #FFF8F1;
+  --dark-brown:  #362519;
+  --footer-dark: #220F08;
+  --caramel:     #D2691E;
+  --text-main:   #4A3728;
+  --font-titles: 'Playfair Display', serif;
+  --font-body:   'Lora', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-cream);
+  font-family: var(--font-body);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   2. ELEMENTOS DECORATIVOS (FOLHAS, CHOCOLATE, BLOBS)
+   ============================================================ */
+
+/* Classe base para todos os decorativos */
+.deco {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ícones folha — preto+branco → marrom escuro com fundo transparente */
+[class*="leaf"] {
+  mix-blend-mode: multiply;
+ filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
+}
+
+/* Ícones chocolate — mesmo tratamento */
+[class*="choco"] {
+  mix-blend-mode: multiply;
+  filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
+}
+
+/* Blobs laranjas (Vector_15.svg) — semi-transparentes naturalmente */
+[class*="blob"] {
+  /* cor já definida no SVG: #D2691E com opacity 0.15 */
+}
+
+/* ============================================================
+   3. NAVBAR
+   ============================================================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 8%;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: var(--bg-cream);
+ 
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: var(--caramel);
+}
+
+.logo-container .main-logo {
+  height: 98px;
+  margin: -190 0 -190 0;
+  
+}
+
+/* ============================================================
+   4. BOTÕES E LINKS CTA
+   ============================================================ */
+.btn-peça,
+.link-line {
+  font-family: var(--font-titles);
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.82rem;
+  border-bottom: 2px solid var(--caramel);
+  padding-bottom: 3px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-peça:hover,
+.link-line:hover {
+  color: var(--caramel);
+  border-bottom-color: var(--text-main);
+}
+
+/* ============================================================
+   5. HERO
+   ============================================================ */
+.hero {
+  padding: 140px 8% 90px;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Folha grande superior esquerda */
+.hero-leaf-tl {
+  top: 70px;
+  left: -10px;
+  width: 190px;
+  transform: rotate(-25deg) scaleX(-1);
+  filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
+}
+
+/* Folha pequena inferior direita */
+.hero-leaf-br {
+  bottom: 30px;
+  right: 4%;
+  width: 95px;
+  transform: rotate(90deg);
+  filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
+}
+
+/* Blob alaranjado à esquerda — aparece parcialmente */
+.hero-blob-l {
+  left: -180px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 580px;
+  opacity: 0.7;
+}
+
+/* Grid: imagem LEFT | texto RIGHT */
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Imagem hero com forma orgânica arredondada no topo */
+.hero-image img {
+  width: 82%;
+  object-fit: cover;
+  display: block;
+  
+}
+
+.hero-text h1 {
+  font-family: var(--font-titles);
+  font-size: 3.9rem;
+  line-height: 1.1;
+  margin-bottom: 22px;
+  color: var(--text-main);
+}
+
+.hero-text > p {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--text-main);
+  margin-bottom: 28px;
+  max-width: 360px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.hero-actions span {
+  font-style: italic;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--text-main);
+}
+
+/* ============================================================
+   6. MENU LIST (ZIG-ZAG)
+   ============================================================ */
+.menu-list {
+  padding: 90px 8% 70px;
+  position: relative;
+}
+
+/* Folha topo esquerda */
+.menu-leaf-tl {
+  top: 20px;
+  left: 4%;
+  width: 165px;
+  transform: rotate(-15deg) scaleX(-1);
+  filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
+}
+
+/* Blob inferior esquerda */
+.menu-blob-bl {
+  bottom: 120px;
+  left: 1080px;
+  width: 540px;
+  opacity: 0.65;
+  transform: rotate(180deg);
+}
+
+.section-title {
+  text-align: center;
+  font-family: var(--font-titles);
+  font-size: 2.75rem;
+  margin-bottom: 70px;
+  color: var(--text-main);
+}
+
+/* Row padrão */
+.item {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  margin-bottom: 100px;
+  position: relative;
+}
+
+.item.reverse {
+  flex-direction: row-reverse;
+}
+
+.item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-info h3 {
+  font-family: var(--font-titles);
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+  color: var(--text-main);
+}
+
+.item-info p {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.85;
+  color: var(--text-main);
+  margin-bottom: 24px;
+}
+
+/* Wrapper da imagem — blob laranjo via pseudo-elemento */
+.item-img {
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Blob laranja atrás das imagens de comida */
+.item-img::before {
+  content: '';
+  position: absolute;
+  background: rgba(210, 105, 30, 0.14);
+  z-index: 0;
+}
+
+/* ── Forma 1: éclair (oval horizontal) ── */
+.blob-1::before {
+  width: 420px;
+  height: 380px;
+  border-radius: 40% 60% 65% 35% / 55% 45% 55% 45%;
+  top: 30px;
+  right: -10px;
+}
+
+.blob-1 img {
+  width: 535px;
+  height: 420px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+/* ── Forma 2: fatia de bolo ── */
+.blob-2::before {
+  width: 400px;
+  height: 400px;
+  border-radius: 60% 40% 45% 55% / 40% 60% 40% 60%;
+  top: 25px;
+  left: -10px;
+}
+
+.blob-2 img {
+  width: 710px;
+  height: 420px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+/* ── Forma 3: chef (heritage) ── */
+.blob-3::before {
+  width: 420px;
+  height: 460px;
+  border-radius: 45% 55% 60% 40% / 35% 55% 45% 65%;
+  top: 25px;
+  right: 0;
+}
+
+.blob-3 img {
+  width: 610px;
+  height: 490px;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+/* Ícone chocolate canto inferior direito do item 2 */
+.menu-choco-br {
+  position: absolute;
+  bottom: -30px;
+  right: 2%;
+  width: 88px;
+  transform: rotate(-35deg);
+  filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
+}
+
+/* ============================================================
+   7. NOTRE HÉRITAGE
+   ============================================================ */
+.heritage {
+  padding: 80px 8% 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Blob canto superior esquerdo */
+.heritage-blob-tl {
+  top: 150px;
+  left: -200px;
+  width: 560px;
+  opacity: 0.6;
+  height: 650px;
+  transform: rotate(100deg);
+  
+}
+
+/* Blob canto superior direito (espelhado) */
+.heritage-blob-tr {
+  top: -70px;
+  right: -200px;
+  width: 520px;
+  opacity: 0.5;
+  transform: scaleX(-2);
+  height: 650px;
+  transform: rotate(-90deg);
+}
+
+.heritage-content {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.heritage-text {
+  flex: 1;
+}
+
+.heritage-text p {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.9;
+  color: var(--text-main);
+}
+
+/* ============================================================
+   8. PAROLES GOURMANDES (TESTIMONIALS)
+   ============================================================ */
+.testimonials {
+  padding: 80px 8% 110px;
+  position: relative;
+}
+
+/* Chocolate canto superior esquerdo */
+.test-choco-tl {
+  top: 50px;
+  left: 4%;
+  width: 80px;
+  filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
+  transform: rotate(-10deg);
+}
+
+/* Blob superior direito */
+.deco-test-blob-tr {
+  top: -90px;
+  right: -190px;
+  width: 470px;
+  opacity: 0.55;
+  
+}
+
+/* Folha canto inferior direito */
+.test-leaf-br {
+  bottom: 50px;
+  right: 3%;
+  width: 100px;
+  transform: rotate(25deg);
+  filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  padding: 22px 18px;
+  border-left: 2px solid var(--caramel);
+  position: relative;
+  background: transparent;
+}
+
+/* Aspas decorativas no canto superior direito do card */
+.card::after {
+  content: '"';
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-family: var(--font-titles);
+  font-size: 4rem;
+  color: var(--caramel);
+  opacity: 0.22;
+  line-height: 1;
+}
+
+.stars {
+  color: var(--caramel);
+  font-size: 1rem;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.card h4 {
+  font-family: var(--font-titles);
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  color: var(--text-main);
+}
+
+.card p {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--text-main);
+  font-style: italic;
+}
+
+/* ============================================================
+   9. COMMENT NOUS TROUVER (CONTATO)
+   ============================================================ */
+.find-us {
+  padding: 80px 8% 100px;
+  position: relative;
+}
+
+/* Folha superior esquerda */
+.contact-leaf-tl {
+  top: 30px;
+  left: 3%;
+  width: 140px;
+  transform: rotate(-20deg) scaleX(-1);
+  filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
+}
+
+/* Blob central (fundo da seção) */
+.contact-blob-c {
+  top: 10%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  opacity: 0.35;
+  transform: rotate(180deg);
+}
+
+/* Chocolate inferior direito */
+.contact-choco-br {
+  bottom: 40px;
+  right: 3%;
+  width: 82px;
+  transform: rotate(8deg);
+  filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-info h3,
+.map-box h3 {
+  font-family: var(--font-titles);
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+  color: var(--text-main);
+}
+
+.info-group {
+  margin-bottom: 28px;
+}
+
+.info-group p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-group i {
+  color: var(--caramel);
+  font-size: 1.15rem;
+  width: 20px;
+}
+
+.follow-text {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.98rem;
+  color: var(--text-main);
+}
+
+.address {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--text-main);
+  margin-bottom: 18px;
+}
+
+.map-wrapper {
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.map-img {
+  width: 50%;
+  display: block;
+  border-radius: 18px;
+  filter: sepia(0.4) saturate(0.75) brightness(1.02);
+}
+
+/* ============================================================
+   10. SEÇÃO CTA FINAL (fundo creme, antes da onda)
+   ============================================================ */
+.cta-section {
+  padding: 80px 8% 100px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Blob central */
+.cta-blob-c {
+  top: 20%;
+  transform: translate(-50%, -50%);
+  width: 720px;
+  opacity: 0.45;
+  z-index: -1;
+}
+
+/* Folha inferior direita */
+.cta-leaf-br {
+  bottom: 60px;
+  right: 4%;
+  width: 105px;
+  transform: rotate(-35deg);
+  filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
+}
+
+.cta-flex {
+  display: flex;
+  align-items: center;
+  gap: 65px;
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Imagem dos doces com forma orgânica */
+.cta-img-blob img {
+  width: 320px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50% 50% 45% 55% / 60% 60% 40% 40%;
+  display: block;
+}
+
+.cta-text p {
+  font-family: var(--font-titles);
+  font-size: 1.35rem;
+  line-height: 1.65;
+  color: var(--text-main);
+  margin-bottom: 28px;
+  max-width: 360px;
+}
+
+/* ============================================================
+   11. ONDA DO FOOTER (SVG Group_1)
+   ============================================================ */
+.footer-wave {
+  line-height: 0;
+  margin-top: 0;
+}
+
+.footer-wave svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  z-index: 1000;
+}
+
+/* ============================================================
+   12. FOOTER (fundo escuro)
+   ============================================================ */
+.footer-final {
+  background-color: var(--footer-dark);
+  color: var(--bg-cream);
+  padding: 40px 8% 50px;
+  margin-top: -2px; /* cola com a onda */
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Marca */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-logo {
+  height: 98px;
+  /* Se o logo for escuro, descomente para clarear:
+  filter: brightness(10) saturate(0); */
+  width: 98px;
+  
+}
+
+.footer-brand p {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.82rem;
+  color: rgba(255, 248, 241, 0.65);
+}
+
+/* Links verticais */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-links a {
+  color: var(--bg-cream);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: color 0.3s;
+  letter-spacing: 0.4px;
+}
+
+.footer-links a:hover {
+  color: var(--caramel);
+}
+
+/* Redes sociais + ícone chocolate */
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.footer-social i {
+  font-size: 1.55rem;
+  color: var(--bg-cream);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.footer-social i:hover {
+  color: var(--caramel);
+}
+
+/* Ícone chocolate no footer — invertido para ser claro */
+.footer-choco-icon {
+  width: 52px;
+  filter: invert(1) brightness(0.85);
+  opacity: 0.75;
+  pointer-events: none;
+  filter: invert(99%) sepia(4%) saturate(1487%) hue-rotate(334deg) brightness(103%) contrast(100%);
+}
+
+/* ============================================================
+   13. RESPONSIVIDADE
+   ============================================================ */
+@media (max-width: 1100px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero-image img {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .hero-text > p {
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .item,
+  .item.reverse {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .heritage-content {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cta-flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cta-text p {
+    max-width: 100%;
+  }
+
+  .hero-text h1 { font-size: 2.9rem; }
+  .section-title { font-size: 2.3rem; }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 36px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 18px 5%;
+  }
+
+  .navbar ul {
+    gap: 16px;
+  }
+
+  .hero {
+    padding: 120px 5% 60px;
+  }
+
+  .hero-text h1 { font-size: 2.3rem; }
+  .section-title { font-size: 2rem; }
+
+  .menu-list,
+  .heritage,
+  .testimonials,
+  .find-us,
+  .cta-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .blob-1 img,
+  .blob-2 img,
+  .blob-3 img {
+    width: 100%;
+    height: 300px;
+  }
+
+  .cta-img-blob img {
+    width: 260px;
+    height: 240px;
+  }
+}
