@@ -1,9 +1,4 @@
-/* ============================================================
-   FLEUR DE LAIT — style.css
-   Fiel ao design: cores, tipografia, blobs e decorações
-   ============================================================ */
 
-/* 1. VARIÁVEIS E RESET */
 :root {
   --bg-cream:    #FFF8F1;
   --dark-brown:  #362519;
@@ -32,37 +27,26 @@ body {
   overflow-x: hidden;
 }
 
-/* ============================================================
-   2. ELEMENTOS DECORATIVOS (FOLHAS, CHOCOLATE, BLOBS)
-   ============================================================ */
 
-/* Classe base para todos os decorativos */
 .deco {
   position: absolute;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Ícones folha — preto+branco → marrom escuro com fundo transparente */
+
 [class*="leaf"] {
   mix-blend-mode: multiply;
  filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
 }
 
-/* Ícones chocolate — mesmo tratamento */
 [class*="choco"] {
   mix-blend-mode: multiply;
   filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
 }
 
-/* Blobs laranjas (Vector_15.svg) — semi-transparentes naturalmente */
-[class*="blob"] {
-  /* cor já definida no SVG: #D2691E com opacity 0.15 */
-}
 
-/* ============================================================
-   3. NAVBAR
-   ============================================================ */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -100,9 +84,7 @@ body {
   
 }
 
-/* ============================================================
-   4. BOTÕES E LINKS CTA
-   ============================================================ */
+
 .btn-peça,
 .link-line {
   font-family: var(--font-titles);
@@ -126,9 +108,7 @@ body {
   border-bottom-color: var(--text-main);
 }
 
-/* ============================================================
-   5. HERO
-   ============================================================ */
+
 .hero {
   padding: 140px 8% 90px;
   position: relative;
@@ -137,7 +117,7 @@ body {
   align-items: center;
 }
 
-/* Folha grande superior esquerda */
+
 .hero-leaf-tl {
   top: 70px;
   left: -10px;
@@ -146,7 +126,7 @@ body {
   filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
 }
 
-/* Folha pequena inferior direita */
+
 .hero-leaf-br {
   bottom: 30px;
   right: 4%;
@@ -155,7 +135,7 @@ body {
   filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
 }
 
-/* Blob alaranjado à esquerda — aparece parcialmente */
+
 .hero-blob-l {
   left: -180px;
   top: 50%;
@@ -164,7 +144,7 @@ body {
   opacity: 0.7;
 }
 
-/* Grid: imagem LEFT | texto RIGHT */
+
 .hero-content {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
@@ -175,7 +155,7 @@ body {
   z-index: 1;
 }
 
-/* Imagem hero com forma orgânica arredondada no topo */
+
 .hero-image img {
   width: 82%;
   object-fit: cover;
@@ -214,15 +194,12 @@ body {
   color: var(--text-main);
 }
 
-/* ============================================================
-   6. MENU LIST (ZIG-ZAG)
-   ============================================================ */
 .menu-list {
   padding: 90px 8% 70px;
   position: relative;
 }
 
-/* Folha topo esquerda */
+
 .menu-leaf-tl {
   top: 20px;
   left: 4%;
@@ -231,7 +208,7 @@ body {
   filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
 }
 
-/* Blob inferior esquerda */
+
 .menu-blob-bl {
   bottom: 120px;
   left: 1080px;
@@ -248,7 +225,7 @@ body {
   color: var(--text-main);
 }
 
-/* Row padrão */
+
 .item {
   display: flex;
   align-items: center;
@@ -281,7 +258,7 @@ body {
   margin-bottom: 24px;
 }
 
-/* Wrapper da imagem — blob laranjo via pseudo-elemento */
+
 .item-img {
   flex: 1.2;
   display: flex;
@@ -290,7 +267,7 @@ body {
   position: relative;
 }
 
-/* Blob laranja atrás das imagens de comida */
+
 .item-img::before {
   content: '';
   position: absolute;
@@ -298,7 +275,7 @@ body {
   z-index: 0;
 }
 
-/* ── Forma 1: éclair (oval horizontal) ── */
+
 .blob-1::before {
   width: 420px;
   height: 380px;
@@ -316,7 +293,6 @@ body {
   display: block;
 }
 
-/* ── Forma 2: fatia de bolo ── */
 .blob-2::before {
   width: 400px;
   height: 400px;
@@ -334,7 +310,7 @@ body {
   display: block;
 }
 
-/* ── Forma 3: chef (heritage) ── */
+
 .blob-3::before {
   width: 420px;
   height: 460px;
@@ -352,7 +328,7 @@ body {
   display: block;
 }
 
-/* Ícone chocolate canto inferior direito do item 2 */
+
 .menu-choco-br {
   position: absolute;
   bottom: -30px;
@@ -362,16 +338,14 @@ body {
   filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
 }
 
-/* ============================================================
-   7. NOTRE HÉRITAGE
-   ============================================================ */
+
 .heritage {
   padding: 80px 8% 100px;
   position: relative;
   overflow: hidden;
 }
 
-/* Blob canto superior esquerdo */
+
 .heritage-blob-tl {
   top: 150px;
   left: -200px;
@@ -382,7 +356,7 @@ body {
   
 }
 
-/* Blob canto superior direito (espelhado) */
+
 .heritage-blob-tr {
   top: -70px;
   right: -200px;
@@ -412,15 +386,12 @@ body {
   color: var(--text-main);
 }
 
-/* ============================================================
-   8. PAROLES GOURMANDES (TESTIMONIALS)
-   ============================================================ */
+
 .testimonials {
   padding: 80px 8% 110px;
   position: relative;
 }
 
-/* Chocolate canto superior esquerdo */
 .test-choco-tl {
   top: 50px;
   left: 4%;
@@ -429,7 +400,7 @@ body {
   transform: rotate(-10deg);
 }
 
-/* Blob superior direito */
+
 .deco-test-blob-tr {
   top: -90px;
   right: -190px;
@@ -438,7 +409,7 @@ body {
   
 }
 
-/* Folha canto inferior direito */
+
 .test-leaf-br {
   bottom: 50px;
   right: 3%;
@@ -462,7 +433,7 @@ body {
   background: transparent;
 }
 
-/* Aspas decorativas no canto superior direito do card */
+
 .card::after {
   content: '"';
   position: absolute;
@@ -497,15 +468,13 @@ body {
   font-style: italic;
 }
 
-/* ============================================================
-   9. COMMENT NOUS TROUVER (CONTATO)
-   ============================================================ */
+
 .find-us {
   padding: 80px 8% 100px;
   position: relative;
 }
 
-/* Folha superior esquerda */
+
 .contact-leaf-tl {
   top: 30px;
   left: 3%;
@@ -514,7 +483,7 @@ body {
   filter: invert(16%) sepia(87%) saturate(1478%) hue-rotate(345deg) brightness(89%) contrast(93%);
 }
 
-/* Blob central (fundo da seção) */
+
 .contact-blob-c {
   top: 10%;
   left: 80%;
@@ -524,7 +493,7 @@ body {
   transform: rotate(180deg);
 }
 
-/* Chocolate inferior direito */
+
 .contact-choco-br {
   bottom: 40px;
   right: 3%;
@@ -596,9 +565,7 @@ body {
   filter: sepia(0.4) saturate(0.75) brightness(1.02);
 }
 
-/* ============================================================
-   10. SEÇÃO CTA FINAL (fundo creme, antes da onda)
-   ============================================================ */
+
 .cta-section {
   padding: 80px 8% 100px;
   position: relative;
@@ -607,7 +574,7 @@ body {
   align-items: center;
 }
 
-/* Blob central */
+
 .cta-blob-c {
   top: 20%;
   transform: translate(-50%, -50%);
@@ -616,7 +583,7 @@ body {
   z-index: -1;
 }
 
-/* Folha inferior direita */
+
 .cta-leaf-br {
   bottom: 60px;
   right: 4%;
@@ -635,7 +602,7 @@ body {
   z-index: 1;
 }
 
-/* Imagem dos doces com forma orgânica */
+
 .cta-img-blob img {
   width: 320px;
   height: 300px;
@@ -653,9 +620,7 @@ body {
   max-width: 360px;
 }
 
-/* ============================================================
-   11. ONDA DO FOOTER (SVG Group_1)
-   ============================================================ */
+
 .footer-wave {
   line-height: 0;
   margin-top: 0;
@@ -668,14 +633,12 @@ body {
   z-index: 1000;
 }
 
-/* ============================================================
-   12. FOOTER (fundo escuro)
-   ============================================================ */
+
 .footer-final {
   background-color: var(--footer-dark);
   color: var(--bg-cream);
   padding: 40px 8% 50px;
-  margin-top: -2px; /* cola com a onda */
+  margin-top: -2px; 
 }
 
 .footer-bottom {
@@ -684,7 +647,7 @@ body {
   align-items: center;
 }
 
-/* Marca */
+
 .footer-brand {
   display: flex;
   flex-direction: column;
@@ -693,8 +656,6 @@ body {
 
 .footer-logo {
   height: 98px;
-  /* Se o logo for escuro, descomente para clarear:
-  filter: brightness(10) saturate(0); */
   width: 98px;
   
 }
@@ -706,7 +667,7 @@ body {
   color: rgba(255, 248, 241, 0.65);
 }
 
-/* Links verticais */
+
 .footer-links {
   display: flex;
   flex-direction: column;
@@ -727,7 +688,7 @@ body {
   color: var(--caramel);
 }
 
-/* Redes sociais + ícone chocolate */
+
 .footer-social {
   display: flex;
   align-items: center;
@@ -745,7 +706,7 @@ body {
   color: var(--caramel);
 }
 
-/* Ícone chocolate no footer — invertido para ser claro */
+
 .footer-choco-icon {
   width: 52px;
   filter: invert(1) brightness(0.85);
@@ -754,9 +715,7 @@ body {
   filter: invert(99%) sepia(4%) saturate(1487%) hue-rotate(334deg) brightness(103%) contrast(100%);
 }
 
-/* ============================================================
-   13. RESPONSIVIDADE
-   ============================================================ */
+
 @media (max-width: 1100px) {
   .hero-content {
     grid-template-columns: 1fr;
